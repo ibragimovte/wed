@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свадебное приглашение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Manrope:wght@400&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="no-scroll">
+  <div id="app" aria-live="polite">
+    <section id="intro" class="state-intro-initial" aria-label="Экран открытия приглашения">
+      <div id="envelope-hitarea" role="button" tabindex="0" aria-label="Открыть приглашение">
+        <img id="intro-frame-0" src="assets/frame-0.png" alt="Приглашение в конверте" />
+        <img id="intro-frame-01" src="assets/frame-0-1.png" alt="Конверт открыт" />
+        <img id="intro-envelope" src="assets/envelope.png" alt="" aria-hidden="true" />
+        <p id="intro-hint">Нажмите, чтобы открыть</p>
+      </div>
+    </section>
+
+    <main id="main" aria-label="Основной экран приглашения">
+      <div class="main-canvas">
+        <img class="main-bg" src="assets/frame-2.png" alt="Свадебное приглашение" />
+
+        <div class="overlay overlay-marquee overlay-marquee-a" aria-hidden="true">
+          <div id="marquee-track" class="marquee-line">
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+          </div>
+        </div>
+
+        <div class="overlay overlay-marquee overlay-marquee-b" aria-hidden="true">
+          <div id="marquee-track-reverse" class="marquee-line">
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+          </div>
+        </div>
+
+        <p id="gradient-text" class="overlay" aria-label="Градиентный акцент">SAVE THE DATE</p>
+
+        <button id="rsvp-button" class="overlay" type="button">Я с нетерпением жду!</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
