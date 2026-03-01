@@ -59,6 +59,7 @@ h2 {
 #intro {
   opacity: 1;
   transition: opacity 450ms ease;
+  padding: 0;
 }
 
 #intro.is-fading {
@@ -70,9 +71,12 @@ h2 {
   left: 49px;
   top: 232px;
   margin: 0;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .envelope-button {
+  position: relative;
   border: 0;
   background: transparent;
   padding: 0;
