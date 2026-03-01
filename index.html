@@ -3,47 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Свадебное приглашение</title>
+  <title>Пригласительное</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Manrope:wght@400&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="no-scroll">
-  <div id="app" aria-live="polite">
-    <section id="intro" class="state-intro-initial" aria-label="Экран открытия приглашения">
-      <div id="envelope-hitarea" role="button" tabindex="0" aria-label="Открыть приглашение">
-        <img id="intro-frame-0" src="assets/frame-0.png" alt="Приглашение в конверте" />
-        <img id="intro-frame-01" src="assets/frame-0-1.png" alt="Конверт открыт" />
-        <img id="intro-envelope" src="assets/envelope.png" alt="" aria-hidden="true" />
-        <p id="intro-hint">Нажмите, чтобы открыть</p>
-      </div>
-    </section>
+<body>
+  <section id="intro" class="screen screen--active" aria-label="Экран конверта">
+    <h2 class="intro-title">Нажмите, чтобы открыть</h2>
+    <button id="envelopeButton" class="envelope-button" type="button" aria-label="Открыть приглашение">
+      <img
+        class="envelope-image"
+        src="assets/envelope.png"
+        alt="Конверт"
+      />
+    </button>
+  </section>
 
-    <main id="main" aria-label="Основной экран приглашения">
-      <div class="main-canvas">
-        <img class="main-bg" src="assets/frame-2.png" alt="Свадебное приглашение" />
-
-        <div class="overlay overlay-marquee overlay-marquee-a" aria-hidden="true">
-          <div id="marquee-track" class="marquee-line">
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+  <section id="landing" class="screen" aria-label="Лендинг приглашения">
+    <main class="landing-box">
+      <div class="marquee-container" aria-hidden="true">
+        <div class="marquee marquee--upper">
+          <div class="marquee__track marquee__track--right">
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
           </div>
         </div>
-
-        <div class="overlay overlay-marquee overlay-marquee-b" aria-hidden="true">
-          <div id="marquee-track-reverse" class="marquee-line">
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+        <div class="marquee marquee--lower">
+          <div class="marquee__track marquee__track--left">
+            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
           </div>
         </div>
-
-        <p id="gradient-text" class="overlay" aria-label="Градиентный акцент">SAVE THE DATE</p>
-
-        <button id="rsvp-button" class="overlay" type="button">Я с нетерпением жду!</button>
       </div>
+
+      <svg class="ring-text-layer" viewBox="0 0 354.17 344.59" aria-hidden="true">
+        <defs>
+          <path
+            id="ringTextPath"
+            d="M 177.085,172.295 m -156,0 a 156,156 0 1,1 312,0 a 156,156 0 1,1 -312,0"
+          />
+        </defs>
+        <text class="photo-ellipse__ring-text">
+          <textPath href="#ringTextPath" startOffset="0%">
+            мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! 
+          </textPath>
+        </text>
+      </svg>
+
+      <section class="photo-ellipse" aria-label="Фото пары">
+        <img class="photo-ellipse__image" src="assets/couple-photo.png" alt="Фото пары" />
+      </section>
     </main>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>

@@ -1,90 +1,30 @@
 ﻿(() => {
-  const STATES = {
-    INTRO_INITIAL: "intro-initial",
-    INTRO_TAPPED: "intro-tapped",
-    MAIN: "main"
-  };
+  const intro = document.getElementById("intro");
+  const landing = document.getElementById("landing");
+  const envelopeButton = document.getElementById("envelopeButton");
 
-  let currentState = STATES.INTRO_INITIAL;
-  let isTransitioning = false;
+  if (!intro || !landing || !envelopeButton) return;
 
-  function getMsVar(name, fallback) {
-    const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    if (!raw) return fallback;
-    if (raw.endsWith("ms")) return Number.parseFloat(raw);
-    if (raw.endsWith("s")) return Number.parseFloat(raw) * 1000;
-    return fallback;
-  }
+  let isAnimating = false;
 
-  function setState(next) {
-    const intro = document.getElementById("intro");
-    currentState = next;
+  envelopeButton.addEventListener("click", () => {
+    if (isAnimating) return;
+    isAnimating = true;
 
-    intro.classList.remove("state-intro-initial", "state-intro-tapped");
-
-    if (next === STATES.INTRO_INITIAL) {
-      intro.classList.add("state-intro-initial");
-      return;
-    }
-
-    if (next === STATES.INTRO_TAPPED) {
-      intro.classList.add("state-intro-tapped");
-    }
-  }
-
-  function moveToMain() {
-    const intro = document.getElementById("intro");
-    const main = document.getElementById("main");
-    const fadeMs = getMsVar("--fade-duration", 380);
-
-    intro.classList.add("is-fading");
-    main.classList.add("is-visible");
-    document.body.classList.remove("no-scroll");
-    currentState = STATES.MAIN;
+    envelopeButton.classList.add("is-open");
 
     window.setTimeout(() => {
-      intro.hidden = true;
-      isTransitioning = false;
-    }, fadeMs + 40);
-  }
+      intro.classList.add("is-fading");
+      landing.classList.add("screen--active");
 
-  function startOpenFlow() {
-    if (isTransitioning || currentState !== STATES.INTRO_INITIAL) return;
-    isTransitioning = true;
-
-    const introAnimMs = getMsVar("--intro-anim-duration", 520);
-    const delayAfterTapMs = 150;
-
-    setState(STATES.INTRO_TAPPED);
-
-    window.setTimeout(() => {
-      moveToMain();
-    }, introAnimMs + delayAfterTapMs);
-  }
-
-  function initInvitation() {
-    const hitArea = document.getElementById("envelope-hitarea");
-    const rsvpButton = document.getElementById("rsvp-button");
-
-    if (!hitArea) return;
-
-    setState(STATES.INTRO_INITIAL);
-
-    hitArea.addEventListener("click", startOpenFlow, { once: false });
-    hitArea.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        startOpenFlow();
-      }
-    });
-
-    if (rsvpButton) {
-      rsvpButton.addEventListener("click", () => {
-        alert("Анкета будет подключена позже. Спасибо!");
+      window.requestAnimationFrame(() => {
+        landing.classList.add("is-visible");
       });
-    }
-  }
 
-  window.initInvitation = initInvitation;
-  window.addEventListener("DOMContentLoaded", initInvitation);
+      window.setTimeout(() => {
+        intro.classList.remove("screen--active");
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }, 470);
+    }, 620);
+  });
 })();
