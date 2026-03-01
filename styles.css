@@ -60,6 +60,8 @@ h2 {
   opacity: 1;
   transition: opacity 450ms ease;
   padding: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 #intro.is-fading {
@@ -71,12 +73,15 @@ h2 {
   left: 49px;
   top: 232px;
   margin: 0;
+  white-space: nowrap;
   pointer-events: none;
   z-index: 2;
 }
 
 .envelope-button {
-  position: relative;
+  position: absolute;
+  left: 64.75px;
+  top: 300px;
   border: 0;
   background: transparent;
   padding: 0;
@@ -115,7 +120,7 @@ h2 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 100dvh;
+  min-height: 1280px;
 }
 
 .marquee-container {
@@ -193,6 +198,49 @@ h2 {
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.love-block {
+  position: absolute;
+  left: -69px;
+  top: 690px;
+  width: 620px;
+  height: 564px;
+  z-index: 1;
+}
+
+.love-block__pink {
+  position: absolute;
+  left: 69px;
+  top: 0;
+  width: 272px;
+  height: 564px;
+  object-fit: cover;
+}
+
+.love-block__purple {
+  position: absolute;
+  left: 250px;
+  top: 90px;
+  width: 271px;
+  height: 421px;
+  object-fit: cover;
+}
+
+.love-block__text {
+  position: absolute;
+  left: 69px;
+  top: 128px;
+  margin: 0;
+  color: #FFFFFF;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 1px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 2;
 }
 
 .marquee__track {
