@@ -7,10 +7,14 @@
 }
 
 @font-face {
-  font-family: "Sonic HUD C Italic";
-  src: local("Sonic HUD C Italic"), local("Sonic HUD C");
+  font-family: "Sonic HUD C Italic Regular";
+  src:
+    local("Sonic HUD C Italic Regular"),
+    local("Sonic HUD C Italic"),
+    url("assets/fonts/sonic-hud-c-italic.otf.woff2") format("woff2");
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
 }
 
 html,
@@ -161,17 +165,17 @@ h2 {
 
 .ring-text-layer {
   position: absolute;
-  left: 18px;
-  top: 205px;
-  width: 354.17px;
-  height: 344.59px;
+  left: 8px;
+  top: 195px;
+  width: 374.17px;
+  height: 364.59px;
   pointer-events: none;
   z-index: 3;
 }
 
 .photo-ellipse__ring-text {
   fill: #4A5872;
-  font-family: "Sonic HUD C Italic", "Manrope", sans-serif;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
   font-style: italic;
   font-size: 20px;
   font-weight: 400;
