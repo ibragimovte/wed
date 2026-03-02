@@ -393,6 +393,15 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.location-block__address:visited,
+.location-block__address:hover,
+.location-block__address:active {
+  color: #4a5872;
+  text-decoration: none;
 }
 
 .location-block__time {
