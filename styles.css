@@ -120,7 +120,7 @@ h2 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 1960px;
+  min-height: 3400px;
 }
 
 .marquee-container {
@@ -324,6 +324,188 @@ h2 {
   line-height: 39px;
   letter-spacing: 1px;
   z-index: 3;
+}
+
+.location-block {
+  position: absolute;
+  left: 0;
+  top: 1933px;
+  width: 100%;
+  height: 692px;
+  overflow: hidden;
+}
+
+.location-block p {
+  padding-inline: 0;
+}
+
+.location-block__where-strip {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 474px;
+  height: 71px;
+  background: #a9cff0;
+}
+
+.location-block__where-text {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
+.location-block__photo {
+  position: absolute;
+  left: 34px;
+  top: 120px;
+  width: 333.42px;
+  height: 371.13px;
+  object-fit: contain;
+  transform: rotate(-13deg);
+  filter: drop-shadow(0 6px 8px rgba(34, 54, 89, 0.2));
+}
+
+.location-block__address {
+  position: absolute;
+  left: 22px;
+  top: 531px;
+  width: 346px;
+  height: 60px;
+  margin: 0;
+  background: #f3e6dc;
+  border-radius: 80px;
+  color: #4a5872;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.location-block__time {
+  position: absolute;
+  left: 130px;
+  top: 631px;
+  width: 130px;
+  height: 60px;
+  margin: 0;
+  background: #f3e6dc;
+  border-radius: 80px;
+  color: #4a5872;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist-block {
+  position: absolute;
+  left: 0;
+  top: 2707px;
+  width: 100%;
+  height: 622px;
+  overflow: hidden;
+}
+
+.wishlist-block p {
+  padding-inline: 0;
+}
+
+.wishlist-block__strip {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 474px;
+  height: 71px;
+  background: #a9cff0;
+  z-index: 3;
+}
+
+.wishlist-block__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
+.wishlist-block__pink {
+  position: absolute;
+  left: -54px;
+  top: 108px;
+  width: 270px;
+  height: 260px;
+  border-radius: 50%;
+  background: #F49AC2;
+  z-index: 2;
+}
+
+.wishlist-block__purple {
+  position: absolute;
+  left: 3px;
+  top: 108px;
+  width: 390px;
+  height: 479px;
+  border-radius: 50%;
+  background: #B39DDB;
+  transform: rotate(-11.86deg);
+  transform-origin: center;
+  z-index: 1;
+}
+
+.wishlist-block__text-main {
+  position: absolute;
+  left: 33px;
+  top: 238px;
+  width: 324px;
+  margin: 0;
+  color: #ffffff;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.wishlist-block__text-note {
+  position: absolute;
+  left: 28px;
+  top: 440px;
+  width: 334px;
+  margin: 0;
+  color: #ffffff;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  z-index: 2;
 }
 
 .marquee__track {
