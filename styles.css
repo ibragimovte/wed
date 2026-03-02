@@ -120,7 +120,7 @@ h2 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 1280px;
+  min-height: 1960px;
 }
 
 .marquee-container {
@@ -243,6 +243,89 @@ h2 {
   z-index: 2;
 }
 
+.date-block {
+  position: absolute;
+  left: 0;
+  top: 1313px;
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+}
+
+.date-block p {
+  padding-inline: 0;
+}
+
+.date-block__when-strip {
+  position: absolute;
+  left: -42px;
+  top: 76px;
+  width: 474px;
+  height: 71px;
+  background: #a9cff0;
+  z-index: 1;
+}
+
+.date-block__when-text {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
+.date-block__cat {
+  position: absolute;
+  left: -125px;
+  top: 0;
+  width: 641px;
+  height: 620px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.date-block__numbers {
+  position: absolute;
+  left: 6px;
+  top: 235px;
+  width: 378px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 0;
+  z-index: 3;
+}
+
+.date-block__day {
+  color: #ffd84d;
+}
+
+.date-block__month {
+  position: absolute;
+  left: 65px;
+  top: 310px;
+  margin: 0;
+  color: #ffd84d;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
 .marquee__track {
   display: inline-flex;
   white-space: nowrap;
@@ -280,5 +363,17 @@ h2 {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes when-color-pulse {
+  0% {
+    color: #ffffff;
+  }
+  50% {
+    color: #4a5872;
+  }
+  100% {
+    color: #ffffff;
   }
 }
