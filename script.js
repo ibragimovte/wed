@@ -4,9 +4,10 @@
   const stage = document.getElementById("stage");
   const intro = document.getElementById("intro");
   const landing = document.getElementById("landing");
+  const landingBox = landing ? landing.querySelector(".landing-box") : null;
   const envelopeButton = document.getElementById("envelopeButton");
 
-  if (!stage || !intro || !landing || !envelopeButton) return;
+  if (!stage || !intro || !landing || !landingBox || !envelopeButton) return;
 
   function getMaxPhoneWidth() {
     const raw = getComputedStyle(document.documentElement).getPropertyValue("--max-phone-width").trim();
@@ -20,6 +21,13 @@
     const boundedWidth = Math.min(viewportWidth, maxPhoneWidth);
     const scale = boundedWidth / DESIGN_WIDTH;
     const offsetX = Math.max(0, (viewportWidth - boundedWidth) / 2);
+
+    let maxBottom = 0;
+    for (const child of landingBox.children) {
+      const bottom = child.offsetTop + child.offsetHeight;
+      if (bottom > maxBottom) maxBottom = bottom;
+    }
+    landingBox.style.minHeight = `${Math.max(844, Math.ceil(maxBottom + 40))}px`;
 
     document.documentElement.style.setProperty("--stage-scale", String(scale));
     document.documentElement.style.setProperty("--stage-offset-x", `${offsetX}px`);
