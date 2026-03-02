@@ -45,6 +45,8 @@ body {
 #stage {
   width: calc(var(--design-width) * 1px);
   background-color: #CFE3F2;
+  margin-top: -100px;
+  padding-top: 100px;
   transform-origin: top left;
   transform: translateX(var(--stage-offset-x)) scale(var(--stage-scale));
   will-change: transform;
@@ -86,7 +88,7 @@ h2 {
 .intro-title {
   position: absolute;
   left: 49px;
-  top: 194px;
+  top: 180px;
   margin: 0;
   white-space: nowrap;
   pointer-events: none;
@@ -96,7 +98,7 @@ h2 {
 .envelope-button {
   position: absolute;
   left: 64.75px;
-  top: 262px;
+  top: 248px;
   border: 0;
   background: transparent;
   padding: 0;
