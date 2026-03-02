@@ -4,6 +4,10 @@
 
 :root {
   --layout: 20px;
+  --design-width: 390;
+  --max-phone-width: 430;
+  --stage-scale: 1;
+  --stage-offset-x: 0px;
 }
 
 @font-face {
@@ -21,7 +25,7 @@ html,
 body {
   margin: 0;
   min-height: 100dvh;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 html {
@@ -29,10 +33,19 @@ html {
 }
 
 body {
-  width: min(390px, 100vw);
-  margin: 0 auto;
-  background-color: #CFE3F2;
+  width: 100%;
+  margin: 0;
+  background-color: #e9edf1;
   overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+#stage {
+  width: calc(var(--design-width) * 1px);
+  background-color: #CFE3F2;
+  transform-origin: top left;
+  transform: translateX(var(--stage-offset-x)) scale(var(--stage-scale));
+  will-change: transform;
 }
 
 h2 {
@@ -43,7 +56,7 @@ h2 {
 }
 
 .screen {
-  width: 100%;
+  width: calc(var(--design-width) * 1px);
   min-height: 100dvh;
   display: none;
   align-items: center;
@@ -233,7 +246,7 @@ h2 {
   top: 128px;
   margin: 0;
   color: #FFFFFF;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 39px;
@@ -264,6 +277,7 @@ h2 {
   height: 71px;
   background: #a9cff0;
   z-index: 1;
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
 }
 
 .date-block__when-text {
@@ -300,12 +314,13 @@ h2 {
   justify-content: space-between;
   align-items: center;
   color: #ffffff;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 96px;
   font-weight: 700;
   line-height: 39px;
   letter-spacing: 0;
   z-index: 3;
+  text-shadow: 0 6px 12px rgba(34, 54, 89, 0.35);
 }
 
 .date-block__day {
@@ -318,7 +333,7 @@ h2 {
   top: 310px;
   margin: 0;
   color: #ffd84d;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 39px;
@@ -346,6 +361,7 @@ h2 {
   width: 474px;
   height: 71px;
   background: #a9cff0;
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
 }
 
 .location-block__where-text {
@@ -383,7 +399,7 @@ h2 {
   background: #f3e6dc;
   border-radius: 80px;
   color: #4a5872;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;
@@ -414,7 +430,7 @@ h2 {
   background: #f3e6dc;
   border-radius: 80px;
   color: #4a5872;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope",  sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;
@@ -445,6 +461,7 @@ h2 {
   height: 71px;
   background: #a9cff0;
   z-index: 3;
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
 }
 
 .wishlist-block__title {
@@ -458,7 +475,7 @@ h2 {
   letter-spacing: 0;
   text-align: center;
   padding-top: 16px;
-  animation: when-color-pulse 10s ease-in-out infinite;
+  animation: when-color-pulse 8s ease-in-out infinite;
 }
 
 .wishlist-block__pink {
@@ -490,14 +507,18 @@ h2 {
   left: 33px;
   top: 238px;
   width: 324px;
+  height: 140px;
   margin: 0;
   color: #ffffff;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 0;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   z-index: 2;
 }
 
@@ -506,14 +527,18 @@ h2 {
   left: 28px;
   top: 440px;
   width: 334px;
+  height: 80px;
   margin: 0;
   color: #ffffff;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 0;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   z-index: 2;
 }
 
@@ -553,6 +578,7 @@ h2 {
   width: 474px;
   height: 71px;
   background: #a9cff0;
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
 }
 
 .dress-code-block__title {
@@ -576,7 +602,7 @@ h2 {
   width: 289px;
   margin: 0;
   color: #000000;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;
@@ -627,19 +653,72 @@ h2 {
   background: #b1e08a;
 }
 
-.dress-code-block__text-note {
+.dress-code-block__text-between {
   position: absolute;
   left: 64px;
   top: 432px;
   width: 253px;
+  height: 40px;
   margin: 0;
   color: #000000;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 20px;
-  letter-spacing: 0;
+  letter-spacing: 0.1px;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dress-code-block__text-note {
+  position: absolute;
+  left: 28px;
+  top: 675px;
+  width: 334px;
+  height: 40px;
+  margin: 0;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.dress-code-block__pinterest-link {
+  position: absolute;
+  left: 21px;
+  top: 753px;
+  width: 346px;
+  height: 60px;
+  margin: 0;
+  border-radius: 80px;
+  background: #F3E6DC;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.dress-code-block__pinterest-link:visited,
+.dress-code-block__pinterest-link:hover,
+.dress-code-block__pinterest-link:active {
+  color: #000000;
+  text-decoration: none;
 }
 
 .dress-code-block__dot--white {
@@ -705,3 +784,4 @@ h2 {
     color: #ffffff;
   }
 }
+

@@ -10,19 +10,20 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <section id="intro" class="screen screen--active" aria-label="Экран конверта">
-    <h2 class="intro-title">Нажмите, чтобы открыть</h2>
-    <button id="envelopeButton" class="envelope-button" type="button" aria-label="Открыть приглашение">
-      <img
-        class="envelope-image"
-        src="assets/envelope.svg"
-        alt="Конверт"
-      />
-    </button>
-  </section>
+  <div id="stage">
+    <section id="intro" class="screen screen--active" aria-label="Экран конверта">
+      <h2 class="intro-title">Нажмите, чтобы открыть</h2>
+      <button id="envelopeButton" class="envelope-button" type="button" aria-label="Открыть приглашение">
+        <img
+          class="envelope-image"
+          src="assets/envelope.svg"
+          alt="Конверт"
+        />
+      </button>
+    </section>
 
-  <section id="landing" class="screen" aria-label="Лендинг приглашения">
-    <main class="landing-box">
+    <section id="landing" class="screen" aria-label="Лендинг приглашения">
+      <main class="landing-box">
       <div class="marquee-container" aria-hidden="true">
         <div class="marquee marquee--upper">
           <div class="marquee__track marquee__track--right">
@@ -62,10 +63,9 @@
           Если вы здесь —<br />
           значит мы вас<br />
           очень любим и<br />
-          хотим<br />
-          разделить с вами<br />
-          день нашей<br />
-          свадьбы!
+          хотим разделить<br />
+          с вами день<br />
+          нашей свадьбы!
         </p>
       </section>
 
@@ -124,8 +124,8 @@
         </p>
 
         <p class="wishlist-block__text-note">
-          Вместо цветов будем рады<br />
-          бутылочке вашего<br />
+          Вместо цветов будем<br /> 
+          рады бутылочке вашего<br />
           любимого вина
         </p>
       </section>
@@ -154,10 +154,23 @@
           <span class="dress-code-block__dot dress-code-block__dot--green"></span>
         </div>
 
-        <p class="dress-code-block__text-note">
+        <p class="dress-code-block__text-between">
           Цвета, от которых<br />
           мы просим воздержаться
         </p>
+
+        <p class="dress-code-block__text-note">
+          Тут можно поискать вдохновение<br />
+          для своих образов
+        </p>
+
+        <a
+          class="dress-code-block__pinterest-link"
+          href="https://pin.it/5iYGLZL3O"
+          aria-label="Ссылка на Pinterest"
+        >
+          ссылка на пинтерест
+        </a>
 
         <div class="dress-code-block__palette dress-code-block__palette--no" aria-label="Нежелательные цвета">
           <span class="dress-code-block__dot dress-code-block__dot--white"></span>
@@ -165,9 +178,11 @@
           <span class="dress-code-block__dot dress-code-block__dot--red"></span>
         </div>
       </section>
-    </main>
-  </section>
+      </main>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
