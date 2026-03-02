@@ -120,7 +120,7 @@ h2 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 3400px;
+  min-height: 4550px;
 }
 
 .marquee-container {
@@ -515,6 +515,143 @@ h2 {
   letter-spacing: 0;
   text-align: center;
   z-index: 2;
+}
+
+.bw-block {
+  position: absolute;
+  left: 0;
+  top: 3347px;
+  width: 390px;
+  height: 259px;
+  overflow: hidden;
+}
+
+.bw-block__image {
+  display: block;
+  width: 390px;
+  height: 259px;
+  object-fit: cover;
+}
+
+.dress-code-block {
+  position: absolute;
+  left: 0;
+  top: 3690px;
+  width: 100%;
+  height: 813px;
+  overflow: hidden;
+}
+
+.dress-code-block p {
+  padding-inline: 0;
+}
+
+.dress-code-block__strip {
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 474px;
+  height: 71px;
+  background: #a9cff0;
+}
+
+.dress-code-block__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
+.dress-code-block__text-main {
+  position: absolute;
+  left: 51px;
+  top: 136px;
+  width: 289px;
+  margin: 0;
+  color: #000000;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.dress-code-block__palette {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.dress-code-block__palette--yes {
+  left: 21px;
+  top: 281px;
+  width: 349px;
+  justify-content: space-between;
+}
+
+.dress-code-block__palette--no {
+  left: 64px;
+  top: 520px;
+  width: 261px;
+  justify-content: space-between;
+}
+
+.dress-code-block__dot {
+  width: 68px;
+  height: 70px;
+  border-radius: 50%;
+  display: block;
+}
+
+.dress-code-block__dot--pink {
+  background: #f49ac2;
+}
+
+.dress-code-block__dot--yellow {
+  background: #ffd84d;
+}
+
+.dress-code-block__dot--blue {
+  background: #a9cff0;
+}
+
+.dress-code-block__dot--green {
+  background: #b1e08a;
+}
+
+.dress-code-block__text-note {
+  position: absolute;
+  left: 64px;
+  top: 432px;
+  width: 253px;
+  margin: 0;
+  color: #000000;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.dress-code-block__dot--white {
+  background: #ffffff;
+}
+
+.dress-code-block__dot--black {
+  background: #000000;
+}
+
+.dress-code-block__dot--red {
+  background: #ff1515;
 }
 
 .marquee__track {
