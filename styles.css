@@ -140,6 +140,11 @@ h2 {
   min-height: 100dvh;
 }
 
+.landing-box h1,
+.landing-box p {
+  padding-inline: var(--layout);
+}
+
 .marquee-container {
   position: relative;
   width: 100%;
@@ -624,7 +629,7 @@ h2 {
 
 .dress-code-block__palette--no {
   left: 64px;
-  top: 520px;
+  top: 500px;
   width: 261px;
   justify-content: space-between;
 }
@@ -655,7 +660,7 @@ h2 {
 .dress-code-block__text-between {
   position: absolute;
   left: 64px;
-  top: 432px;
+  top: 400px;
   width: 253px;
   height: 40px;
   margin: 0;
@@ -735,10 +740,15 @@ h2 {
 .no-kids-block {
   position: absolute;
   left: 21px;
-  top: 4550px;
+  top: 4600px;
   width: 364.92px;
   height: 630px;
   overflow: visible;
+}
+
+.no-kids-block p,
+.survey-block p {
+  padding-inline: 0;
 }
 
 .no-kids-block__cat {
