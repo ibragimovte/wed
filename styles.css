@@ -171,11 +171,6 @@ h2 {
   transform-origin: center;
 }
 
-.landing-box h1,
-.landing-box p {
-  padding-inline: var(--layout);
-}
-
 .photo-ellipse {
   position: absolute;
   left: 22px;
@@ -735,6 +730,204 @@ h2 {
 
 .dress-code-block__dot--red {
   background: #ff1515;
+}
+
+.no-kids-block {
+  position: absolute;
+  left: 21px;
+  top: 4550px;
+  width: 364.92px;
+  height: 630px;
+  overflow: visible;
+}
+
+.no-kids-block__cat {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 360.92px;
+  height: 284.49px;
+  object-fit: contain;
+}
+
+.no-kids-block__panel {
+  position: absolute;
+  left: 0;
+  top: 245px;
+  width: 347px;
+  height: 385px;
+  background: #F49AC2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-kids-block__text {
+  position: relative;
+  width: 290px;
+  height: 200px;
+  margin: 0;
+  color: #FFFFFF;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-block {
+  position: absolute;
+  left: 0;
+  top: 5311px;
+  width: 390px;
+  height: auto;
+}
+
+.survey-block__strip {
+  position: relative;
+  left: -42px;
+  top: 0;
+  width: 474px;
+  height: 71px;
+  background: #a9cff0;
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
+}
+
+.survey-block__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
+.survey-block__intro {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin: 54px 0 0 22px;
+  width: 347px;
+  height: 100px;
+  color: #000000;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.survey-block__form-wrap {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin: 54px 0 0 45px;
+  width: 299px;
+  /* min-height: 465px; */
+  height: auto;
+  background: rgba(169, 207, 240, 0.58);
+  padding: 20px 16px;
+}
+
+.survey-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.survey-form__label,
+.survey-form__legend,
+.survey-form__option,
+.survey-form__input,
+.survey-form__submit {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: #4A5872;
+  font-weight: 300;
+}
+
+.survey-form__input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid rgba(74, 88, 114, 0.55);
+  border-radius: 10px;
+  background: transparent;
+  padding: 10px 12px;
+  font-weight: 300;
+}
+
+.survey-form__group {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.survey-form__legend {
+  margin-bottom: 4px;
+}
+
+.survey-form__option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 300;
+}
+
+.survey-form__option input[type="radio"],
+.survey-form__option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1px solid rgba(74, 88, 114, 0.75);
+  background: transparent;
+  display: inline-block;
+  flex: 0 0 16px;
+}
+
+.survey-form__option input[type="radio"],
+.survey-form__option input[type="checkbox"] {
+  border-radius: 4px;
+}
+
+.survey-form__option input[type="radio"]:checked,
+.survey-form__option input[type="checkbox"]:checked {
+  border-color: #4A5872;
+  background:
+    linear-gradient(45deg, transparent 47%, #4A5872 47%, #4A5872 53%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #4A5872 47%, #4A5872 53%, transparent 53%);
+}
+
+.survey-form__submit {
+  margin-top: 8px;
+  height: 44px;
+  border: 1px solid rgba(74, 88, 114, 0.45);
+  border-radius: 12px;
+  background: #CFE3F2;
+  color: #4A5872;
+  font-weight: 300;
+  cursor: pointer;
 }
 
 .marquee__track {

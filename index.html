@@ -178,6 +178,59 @@
           <span class="dress-code-block__dot dress-code-block__dot--red"></span>
         </div>
       </section>
+
+      <section class="no-kids-block" aria-label="Информация о детях">
+        <img class="no-kids-block__cat" src="assets/cat-champagne.svg" alt="" aria-hidden="true" />
+        <div class="no-kids-block__panel">
+          <p class="no-kids-block__text">
+            К сожалению,<br />
+            из-за ограничений места<br />
+            проведения, мы не сможем<br />
+            пригласить детей<br />
+            на свадьбу и позаботиться<br />
+            об их досуге.<br /><br />
+            Поэтому надеемся, что вы<br />
+            сможете быть на нашем<br />
+            торжестве без них
+          </p>
+        </div>
+      </section>
+
+      <section class="survey-block" aria-label="Анкета гостей">
+        <div class="survey-block__strip">
+          <p class="survey-block__title">АНКЕТА</p>
+        </div>
+
+        <p class="survey-block__intro">
+          Мы будем очень рады видеть вас<br />
+          на нашем торжестве!<br /><br />
+          Пожалуйста, подтвердите свое присутствие,<br />
+          заполнив анкету ниже до 1 мая
+        </p>
+
+        <div class="survey-block__form-wrap">
+          <form class="survey-form" id="guest-survey" novalidate>
+            <!-- <label class="survey-form__label" for="guest-name">Имя</label> -->
+            <input class="survey-form__input" id="guest-name" name="name" type="text" placeholder="Ваше имя" />
+
+            <fieldset class="survey-form__group">
+              <legend class="survey-form__legend">Придете на свадьбу?</legend>
+              <label class="survey-form__option"><input type="radio" name="attendance" value="yes" /> Да, буду</label>
+              <label class="survey-form__option"><input type="radio" name="attendance" value="no" /> К сожалению, нет</label>
+              <label class="survey-form__option"><input type="radio" name="attendance" value="maybe" /> Пока не знаю</label>
+            </fieldset>
+
+            <fieldset class="survey-form__group">
+              <legend class="survey-form__legend">Предпочтения по горячему</legend>
+              <label class="survey-form__option"><input type="radio" name="hot" value="meat" /> Мясо</label>
+              <label class="survey-form__option"><input type="radio" name="hot" value="fish" /> Рыба</label>
+              <!-- <label class="survey-form__option"><input type="radio" name="hot" value="vegetarian" /> Вегетарианское</label> -->
+            </fieldset>
+
+            <button class="survey-form__submit" type="submit">Отправить</button>
+          </form>
+        </div>
+      </section>
       </main>
     </section>
   </div>
