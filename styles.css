@@ -12,8 +12,8 @@
   --gap-location-to-wishlist: 82px;
   --gap-wishlist-to-bw: 18px;
   --gap-bw-to-dress: 84px;
-  --gap-dress-to-no-kids: 97px;
-  --gap-no-kids-to-survey: 81px;
+  --gap-dress-to-no-kids: 84px;
+  --gap-no-kids-to-survey: 84px;
   --gap-survey-to-chat: 50px;
 }
 
@@ -611,7 +611,7 @@ h2 {
 .dress-code-block {
   position: relative;
   width: 100%;
-  min-height: 813px;
+  /* min-height: 813px; */
   overflow: hidden;
   padding-bottom: 20px;
 }
