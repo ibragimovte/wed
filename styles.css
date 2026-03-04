@@ -14,7 +14,7 @@
   --gap-bw-to-dress: 84px;
   --gap-dress-to-no-kids: 97px;
   --gap-no-kids-to-survey: 81px;
-  --gap-survey-to-chat: 196px;
+  --gap-survey-to-chat: 50px;
 }
 
 @font-face {
@@ -650,7 +650,7 @@ h2 {
   top: 0;
   width: 289px;
   margin: 100px auto 0;
-  color: #000000;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -712,7 +712,7 @@ h2 {
   width: 253px;
   height: auto;
   margin: 40px auto 0;
-  color: #000000;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -731,7 +731,7 @@ h2 {
   width: 334px;
   height: auto;
   margin: 40px auto 0;
-  color: #000000;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -752,7 +752,7 @@ h2 {
   margin: 40px auto 0;
   border-radius: 80px;
   background: #F3E6DC;
-  color: #000000;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -763,13 +763,12 @@ h2 {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding-top: 20px;
 }
 
 .dress-code-block__pinterest-link:visited,
 .dress-code-block__pinterest-link:hover,
 .dress-code-block__pinterest-link:active {
-  color: #000000;
+  color: #4a5872;
   text-decoration: none;
 }
 
@@ -792,7 +791,8 @@ h2 {
   margin-top: var(--gap-dress-to-no-kids);
   width: 100%;
   max-width: 390px;
-  min-height: 630px;
+  min-height: 701px;
+  padding-top: 71px;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -804,6 +804,32 @@ h2 {
   padding-inline: 0;
 }
 
+.no-kids-block__strip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: calc(100% + 84px);
+  height: 71px;
+  background: #a9cff0;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 6px 10px rgba(34, 54, 89, 0.25));
+  z-index: 3;
+}
+
+.no-kids-block__title {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Sonic HUD C Italic Regular", "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 39px;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 16px;
+  animation: when-color-pulse 10s ease-in-out infinite;
+}
+
 .no-kids-block__cat {
   position: relative;
   left: 0;
@@ -811,6 +837,7 @@ h2 {
   width: 347px;
   height: auto;
   object-fit: contain;
+  margin-top: 50px;
   z-index: 1;
 }
 
@@ -872,26 +899,32 @@ h2 {
 
 .chat-block__text {
   position: relative;
-  width: 253px;
-  margin: 0 auto;
+  width: 347px;
+  height: 100px;
+  margin: 54px 0 0 22px;
   color: #000000;
   font-family: "Manrope", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.1px;
   text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   z-index: 3;
 }
 
-.chat-block__link {
+.chat-block__link,
+.dress-code-block__pinterest-link,
+.survey-form__submit {
   position: relative;
   width: 346px;
   height: 60px;
-  margin: 47px auto 0;
+  margin: 40px auto 0;
   border-radius: 80px;
-  background: #F3E6DC;
-  color: #000000;
+  background: #f3e6dc;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-weight: 600;
@@ -902,14 +935,27 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  border: 0;
+  cursor: pointer;
   z-index: 3;
+}
+
+.chat-block__link {
+  margin-top: 47px;
 }
 
 .chat-block__link:visited,
 .chat-block__link:hover,
 .chat-block__link:active {
-  color: #000000;
+  color: #4a5872;
   text-decoration: none;
+}
+
+.survey-form__submit {
+  width: 100%;
+  max-width: 346px;
+  margin-top: 8px;
 }
 
 .chat-block__photobooth {
@@ -942,7 +988,7 @@ h2 {
   top: 1398px;
   width: 246px;
   margin: 0;
-  color: #000000;
+  color: #4a5872;
   font-family: "Manrope", sans-serif;
   font-size: 24px;
   font-weight: 600;
@@ -1084,14 +1130,7 @@ h2 {
 }
 
 .survey-form__submit {
-  margin-top: 8px;
-  height: 44px;
-  border: 1px solid rgba(74, 88, 114, 0.45);
-  border-radius: 12px;
-  background: #CFE3F2;
-  color: #4A5872;
-  font-weight: 300;
-  cursor: pointer;
+  border: 0;
 }
 
 .marquee__track {
