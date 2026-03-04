@@ -6,7 +6,7 @@
   <title>Пригласительное</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,35 +24,37 @@
 
     <section id="landing" class="screen" aria-label="Лендинг приглашения">
       <main class="landing-box">
-      <div class="marquee-container" aria-hidden="true">
-        <div class="marquee marquee--upper">
-          <div class="marquee__track marquee__track--right">
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+      <section class="hero-block" aria-label="Главный блок приглашения">
+        <div class="marquee-container" aria-hidden="true">
+          <div class="marquee marquee--upper">
+            <div class="marquee__track marquee__track--right">
+              <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+            </div>
+          </div>
+          <div class="marquee marquee--lower">
+            <div class="marquee__track marquee__track--left">
+              <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
+            </div>
           </div>
         </div>
-        <div class="marquee marquee--lower">
-          <div class="marquee__track marquee__track--left">
-            <span>ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! ВАУ! У НАС СВАДЬБА! </span>
-          </div>
+
+        <svg class="ring-text-layer" viewBox="0 0 374.17 364.59" aria-hidden="true">
+          <defs>
+            <path
+              id="ringTextPath"
+              d="M 187.085,182.295 m -156,0 a 156,156 0 1,1 312,0 a 156,156 0 1,1 -312,0"
+            />
+          </defs>
+          <text class="photo-ellipse__ring-text">
+            <textPath href="#ringTextPath" startOffset="0%">
+              мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! 
+            </textPath>
+          </text>
+        </svg>
+
+        <div class="photo-ellipse" aria-label="Фото пары">
+          <img class="photo-ellipse__image" src="assets/couple-photo.png" alt="Фото пары" />
         </div>
-      </div>
-
-      <svg class="ring-text-layer" viewBox="0 0 374.17 364.59" aria-hidden="true">
-        <defs>
-          <path
-            id="ringTextPath"
-            d="M 187.085,182.295 m -156,0 a 156,156 0 1,1 312,0 a 156,156 0 1,1 -312,0"
-          />
-        </defs>
-        <text class="photo-ellipse__ring-text">
-          <textPath href="#ringTextPath" startOffset="0%">
-            мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! мы женимся! 
-          </textPath>
-        </text>
-      </svg>
-
-      <section class="photo-ellipse" aria-label="Фото пары">
-        <img class="photo-ellipse__image" src="assets/couple-photo.png" alt="Фото пары" />
       </section>
 
       <section class="love-block" aria-label="Приветственный текст">
@@ -69,168 +71,187 @@
         </p>
       </section>
 
-      <section class="date-block" aria-label="Дата свадьбы">
-        <div class="date-block__when-strip">
-          <p class="date-block__when-text">КОГДА?</p>
-        </div>
+      <div class="details-flow">
+        <section class="date-block" aria-label="Дата свадьбы">
+          <div class="date-block__when-strip">
+            <p class="date-block__when-text">КОГДА?</p>
+          </div>
 
-        <img class="date-block__cat" src="assets/cat.png" alt="" aria-hidden="true" />
+          <img class="date-block__cat" src="assets/cat.png" alt="" aria-hidden="true" />
 
-        <p class="date-block__numbers" aria-label="Дата: 7 августа 2026">
-          <span>5</span>
-          <span>6</span>
-          <span class="date-block__day">7</span>
-          <span>8</span>
-          <span>9</span>
-        </p>
-
-        <p class="date-block__month">августа 2026</p>
-      </section>
-
-      <section class="location-block" aria-label="Место проведения">
-        <div class="location-block__where-strip">
-          <p class="location-block__where-text">ГДЕ?</p>
-        </div>
-
-        <img class="location-block__photo" src="assets/polaroid.svg" alt="Фото площадки" />
-
-        <a
-          class="location-block__address"
-          href="https://yandex.com/maps/-/CPqnyIiK"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Открыть адрес в Яндекс Картах"
-        >
-          Москва<br />
-          Ленинская Слобода, 26, стр. 25
-        </a>
-
-        <p class="location-block__time">15:00</p>
-      </section>
-
-      <section class="wishlist-block" aria-label="Вишлист">
-        <div class="wishlist-block__strip">
-          <p class="wishlist-block__title">ВИШЛИСТ</p>
-        </div>
-
-        <div class="wishlist-block__pink" aria-hidden="true"></div>
-        <div class="wishlist-block__purple" aria-hidden="true"></div>
-
-        <p class="wishlist-block__text-main">
-          Если хотите<br />
-          подарить нам ценный<br />
-          и нужный подарок, мы<br />
-          будем очень благодарны за вклад в бюджет нашей молодой семьи
-        </p>
-
-        <p class="wishlist-block__text-note">
-          Вместо цветов будем<br /> 
-          рады бутылочке вашего<br />
-          любимого вина
-        </p>
-      </section>
-
-      <section class="bw-block" aria-label="Черно-белое фото пары">
-        <img class="bw-block__image" src="assets/bw.png" alt="Черно-белое фото пары" />
-      </section>
-
-      <section class="dress-code-block" aria-label="Дресс-код">
-        <div class="dress-code-block__strip">
-          <p class="dress-code-block__title">ДРЕСС-КОД</p>
-        </div>
-
-        <p class="dress-code-block__text-main">
-          Мы очень старались<br />
-          сделать праздник красивым<br />
-          и будем рады, если вы<br />
-          поддержите цветовую гамму<br />
-          нашей свадьбы
-        </p>
-
-        <div class="dress-code-block__palette dress-code-block__palette--yes" aria-label="Рекомендуемые цвета">
-          <span class="dress-code-block__dot dress-code-block__dot--pink"></span>
-          <span class="dress-code-block__dot dress-code-block__dot--yellow"></span>
-          <span class="dress-code-block__dot dress-code-block__dot--blue"></span>
-          <span class="dress-code-block__dot dress-code-block__dot--green"></span>
-        </div>
-
-        <p class="dress-code-block__text-between">
-          Цвета, от которых<br />
-          мы просим воздержаться
-        </p>
-
-        <p class="dress-code-block__text-note">
-          Тут можно поискать вдохновение<br />
-          для своих образов
-        </p>
-
-        <a
-          class="dress-code-block__pinterest-link"
-          href="https://pin.it/5iYGLZL3O"
-          aria-label="Ссылка на Pinterest"
-        >
-          ссылка на пинтерест
-        </a>
-
-        <div class="dress-code-block__palette dress-code-block__palette--no" aria-label="Нежелательные цвета">
-          <span class="dress-code-block__dot dress-code-block__dot--white"></span>
-          <span class="dress-code-block__dot dress-code-block__dot--black"></span>
-          <span class="dress-code-block__dot dress-code-block__dot--red"></span>
-        </div>
-      </section>
-
-      <section class="no-kids-block" aria-label="Информация о детях">
-        <img class="no-kids-block__cat" src="assets/cat-champagne.svg" alt="" aria-hidden="true" />
-        <div class="no-kids-block__panel">
-          <p class="no-kids-block__text">
-            К сожалению,<br />
-            из-за ограничений места<br />
-            проведения, мы не сможем<br />
-            пригласить детей<br />
-            на свадьбу и позаботиться<br />
-            об их досуге.<br /><br />
-            Поэтому надеемся, что вы<br />
-            сможете быть на нашем<br />
-            торжестве без них
+          <p class="date-block__numbers" aria-label="Дата: 7 августа 2026">
+            <span>5</span>
+            <span>6</span>
+            <span class="date-block__day">7</span>
+            <span>8</span>
+            <span>9</span>
           </p>
-        </div>
-      </section>
 
-      <section class="survey-block" aria-label="Анкета гостей">
-        <div class="survey-block__strip">
-          <p class="survey-block__title">АНКЕТА</p>
-        </div>
+          <p class="date-block__month">августа 2026</p>
+        </section>
 
-        <p class="survey-block__intro">
-          Мы будем очень рады видеть вас<br />
-          на нашем торжестве!<br /><br />
-          Пожалуйста, подтвердите свое присутствие,<br />
-          заполнив анкету ниже до 1 мая
-        </p>
+        <section class="location-block" aria-label="Место проведения">
+          <div class="location-block__where-strip">
+            <p class="location-block__where-text">ГДЕ?</p>
+          </div>
 
-        <div class="survey-block__form-wrap">
-          <form class="survey-form" id="guest-survey" novalidate>
-            <!-- <label class="survey-form__label" for="guest-name">Имя</label> -->
-            <input class="survey-form__input" id="guest-name" name="name" type="text" placeholder="Ваше имя" />
+          <img class="location-block__photo" src="assets/polaroid.svg" alt="Фото площадки" />
 
-            <fieldset class="survey-form__group">
-              <legend class="survey-form__legend">Придете на свадьбу?</legend>
-              <label class="survey-form__option"><input type="radio" name="attendance" value="yes" /> Да, буду</label>
-              <label class="survey-form__option"><input type="radio" name="attendance" value="no" /> К сожалению, нет</label>
-              <label class="survey-form__option"><input type="radio" name="attendance" value="maybe" /> Пока не знаю</label>
-            </fieldset>
+          <a
+            class="location-block__address"
+            href="https://yandex.com/maps/-/CPqnyIiK"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Открыть адрес в Яндекс Картах"
+          >
+            Москва<br />
+            Ленинская Слобода, 26, стр. 25
+          </a>
 
-            <fieldset class="survey-form__group">
-              <legend class="survey-form__legend">Предпочтения по горячему</legend>
-              <label class="survey-form__option"><input type="radio" name="hot" value="meat" /> Мясо</label>
-              <label class="survey-form__option"><input type="radio" name="hot" value="fish" /> Рыба</label>
-              <!-- <label class="survey-form__option"><input type="radio" name="hot" value="vegetarian" /> Вегетарианское</label> -->
-            </fieldset>
+          <p class="location-block__time">15:00</p>
+        </section>
 
-            <button class="survey-form__submit" type="submit">Отправить</button>
-          </form>
-        </div>
-      </section>
+        <section class="wishlist-block" aria-label="Вишлист">
+          <div class="wishlist-block__strip">
+            <p class="wishlist-block__title">ВИШЛИСТ</p>
+          </div>
+
+          <div class="wishlist-block__pink" aria-hidden="true"></div>
+          <div class="wishlist-block__purple" aria-hidden="true"></div>
+
+          <p class="wishlist-block__text-main">
+            Если хотите<br />
+            подарить нам ценный<br />
+            и нужный подарок, мы<br />
+            будем очень благодарны за вклад в бюджет нашей молодой семьи
+          </p>
+
+          <p class="wishlist-block__text-note">
+            Вместо цветов будем<br /> 
+            рады бутылочке вашего<br />
+            любимого вина
+          </p>
+        </section>
+
+        <section class="bw-block" aria-label="Черно-белое фото пары">
+          <img class="bw-block__image" src="assets/bw.png" alt="Черно-белое фото пары" />
+        </section>
+      </div>
+
+      <div class="event-flow">
+        <section class="dress-code-block" aria-label="Дресс-код">
+          <div class="dress-code-block__strip">
+            <p class="dress-code-block__title">ДРЕСС-КОД</p>
+          </div>
+
+          <p class="dress-code-block__text-main">
+            Мы очень старались<br />
+            сделать праздник красивым<br />
+            и будем рады, если вы<br />
+            поддержите цветовую гамму<br />
+            нашей свадьбы
+          </p>
+
+          <div class="dress-code-block__palette dress-code-block__palette--yes" aria-label="Рекомендуемые цвета">
+            <span class="dress-code-block__dot dress-code-block__dot--pink"></span>
+            <span class="dress-code-block__dot dress-code-block__dot--yellow"></span>
+            <span class="dress-code-block__dot dress-code-block__dot--blue"></span>
+            <span class="dress-code-block__dot dress-code-block__dot--green"></span>
+          </div>
+
+          <p class="dress-code-block__text-between">
+            Цвета, от которых<br />
+            мы просим воздержаться
+          </p>
+          
+          <div class="dress-code-block__palette dress-code-block__palette--no" aria-label="Нежелательные цвета">
+            <span class="dress-code-block__dot dress-code-block__dot--white"></span>
+            <span class="dress-code-block__dot dress-code-block__dot--black"></span>
+            <span class="dress-code-block__dot dress-code-block__dot--red"></span>
+          </div>
+
+          <p class="dress-code-block__text-note">
+            Тут можно поискать вдохновение<br />
+            для своих образов
+          </p>
+
+          <a
+            class="dress-code-block__pinterest-link"
+            href="https://pin.it/5iYGLZL3O"
+            aria-label="Ссылка на Pinterest"
+          >
+            ссылка на пинтерест
+          </a>
+
+
+        </section>
+
+        <section class="no-kids-block" aria-label="Информация о детях">
+          <img class="no-kids-block__cat" src="assets/cat-champagne.svg" alt="" aria-hidden="true" />
+          <div class="no-kids-block__panel">
+            <p class="no-kids-block__text">
+              К сожалению,<br />
+              из-за ограничений места<br />
+              проведения, мы не сможем<br />
+              пригласить детей<br />
+              на свадьбу и позаботиться<br />
+              об их досуге.<br /><br />
+              Поэтому надеемся, что вы<br />
+              сможете быть на нашем<br />
+              торжестве без них
+            </p>
+          </div>
+        </section>
+
+        <section class="survey-block" aria-label="Анкета гостей">
+          <div class="survey-block__strip">
+            <p class="survey-block__title">АНКЕТА</p>
+          </div>
+
+          <p class="survey-block__intro">
+            Мы будем очень рады видеть вас<br />
+            на нашем торжестве!<br /><br />
+            Пожалуйста, подтвердите свое присутствие,<br />
+            заполнив анкету ниже до 1 мая
+          </p>
+
+          <div class="survey-block__form-wrap">
+            <form class="survey-form" id="guest-survey" novalidate>
+              <!-- <label class="survey-form__label" for="guest-name">Имя</label> -->
+              <input class="survey-form__input" id="guest-name" name="name" type="text" placeholder="Ваше имя" />
+
+              <fieldset class="survey-form__group">
+                <legend class="survey-form__legend">Придете на свадьбу?</legend>
+                <label class="survey-form__option"><input type="radio" name="attendance" value="yes" /> Да, буду</label>
+                <label class="survey-form__option"><input type="radio" name="attendance" value="no" /> К сожалению, нет</label>
+                <label class="survey-form__option"><input type="radio" name="attendance" value="maybe" /> Пока не знаю</label>
+              </fieldset>
+
+              <fieldset class="survey-form__group">
+                <legend class="survey-form__legend">Предпочтения по горячему</legend>
+                <label class="survey-form__option"><input type="radio" name="hot" value="meat" /> Мясо</label>
+                <label class="survey-form__option"><input type="radio" name="hot" value="fish" /> Рыба</label>
+                <!-- <label class="survey-form__option"><input type="radio" name="hot" value="vegetarian" /> Вегетарианское</label> -->
+              </fieldset>
+
+              <button class="survey-form__submit" type="submit">Отправить</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="chat-block" aria-label="Чат для гостей">
+          <p class="chat-block__text">
+            Пожалуйста, вступите в чат,<br />
+            чтобы мы могли быстро<br />
+            передавать всю нужную<br />
+            информацию
+          </p>
+
+          <a class="chat-block__link" href="#" aria-label="Чат для гостей">
+            чат для гостей!
+          </a>
+        </section>
+      </div>
       </main>
     </section>
   </div>
@@ -238,4 +259,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
