@@ -6,6 +6,7 @@
   const landing = document.getElementById("landing");
   const landingBox = landing ? landing.querySelector(".landing-box") : null;
   const envelopeButton = document.getElementById("envelopeButton");
+  const introTitle = intro ? intro.querySelector(".intro-title") : null;
 
   if (!stage || !intro || !landing || !landingBox || !envelopeButton) return;
 
@@ -46,6 +47,10 @@
   envelopeButton.addEventListener("click", () => {
     if (isAnimating) return;
     isAnimating = true;
+
+    if (introTitle) {
+      introTitle.classList.add("is-fading");
+    }
 
     envelopeButton.classList.add("is-open");
 
