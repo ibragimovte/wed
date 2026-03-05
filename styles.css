@@ -1132,6 +1132,25 @@ h2 {
   border: 0;
 }
 
+.survey-form__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.survey-form__status {
+  min-height: 20px;
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+.survey-form__status--success {
+  color: #2f6b38;
+}
+
+.survey-form__status--error {
+  color: #b12626;
+}
+
 .marquee__track {
   display: inline-flex;
   white-space: nowrap;

@@ -222,23 +222,26 @@
           <div class="survey-block__form-wrap">
             <form class="survey-form" id="guest-survey" novalidate>
               <!-- <label class="survey-form__label" for="guest-name">Имя</label> -->
-              <input class="survey-form__input" id="guest-name" name="name" type="text" placeholder="Ваше имя" />
+              <input class="survey-form__input" id="guest-name" name="name" type="text" placeholder="Ваше имя" required maxlength="120" />
 
               <fieldset class="survey-form__group">
                 <legend class="survey-form__legend">Придете на свадьбу?</legend>
-                <label class="survey-form__option"><input type="radio" name="attendance" value="yes" /> Да, буду</label>
-                <label class="survey-form__option"><input type="radio" name="attendance" value="no" /> К сожалению, нет</label>
-                <label class="survey-form__option"><input type="radio" name="attendance" value="maybe" /> Пока не знаю</label>
+                <label class="survey-form__option"><input type="radio" name="attendance" value="yes" required /> Да, буду</label>
+                <label class="survey-form__option"><input type="radio" name="attendance" value="no" required /> К сожалению, нет</label>
               </fieldset>
 
               <fieldset class="survey-form__group">
                 <legend class="survey-form__legend">Предпочтения по горячему</legend>
-                <label class="survey-form__option"><input type="radio" name="hot" value="meat" /> Мясо</label>
-                <label class="survey-form__option"><input type="radio" name="hot" value="fish" /> Рыба</label>
+                <label class="survey-form__option"><input type="radio" name="hot" value="meat" required /> Мясо</label>
+                <label class="survey-form__option"><input type="radio" name="hot" value="fish" required /> Рыба</label>
                 <!-- <label class="survey-form__option"><input type="radio" name="hot" value="vegetarian" /> Вегетарианское</label> -->
               </fieldset>
 
-              <button class="survey-form__submit" type="submit">Отправить</button>
+              <input type="hidden" name="turnstileToken" id="turnstile-token" />
+              <button class="survey-form__submit" type="submit">
+                <span class="survey-form__submit-text">Отправить</span>
+              </button>
+              <p class="survey-form__status" id="survey-status" role="status" aria-live="polite"></p>
             </form>
           </div>
         </section>
@@ -251,7 +254,7 @@
             информацию
           </p>
 
-          <a class="chat-block__link" href="#" aria-label="Чат для гостей">
+          <a class="chat-block__link" href="https://t.me/+bNz9oGbE1f4zYWQy" aria-label="Чат для гостей">
             чат для гостей!
           </a>
 
