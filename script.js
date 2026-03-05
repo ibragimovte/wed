@@ -7,6 +7,7 @@
   const landingBox = landing ? landing.querySelector(".landing-box") : null;
   const envelopeButton = document.getElementById("envelopeButton");
   const introTitle = intro ? intro.querySelector(".intro-title") : null;
+  const surveyForm = document.getElementById("guest-survey");
 
   if (!stage || !intro || !landing || !landingBox || !envelopeButton) return;
 
@@ -69,4 +70,85 @@
       }, 470);
     }, 620);
   });
+
+  if (surveyForm) {
+    const submitBtn = surveyForm.querySelector(".survey-form__submit");
+    const defaultSubmitText = submitBtn ? submitBtn.textContent : "Отправить";
+    const hotInputs = Array.from(surveyForm.querySelectorAll("input[name='hot']"));
+    const attendanceInputs = Array.from(surveyForm.querySelectorAll("input[name='attendance']"));
+
+    function setSubmitText(text) {
+      if (!submitBtn) return;
+      submitBtn.textContent = text;
+    }
+
+    function updateHotState() {
+      const attendanceInput = surveyForm.querySelector("input[name='attendance']:checked");
+      const needsHot = attendanceInput && attendanceInput.value === "yes";
+
+      for (const input of hotInputs) {
+        input.disabled = !needsHot;
+        if (!needsHot) input.checked = false;
+      }
+    }
+
+    for (const input of attendanceInputs) {
+      input.addEventListener("change", updateHotState);
+    }
+    updateHotState();
+
+    surveyForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const nameInput = surveyForm.querySelector("#guest-name");
+      const attendanceInput = surveyForm.querySelector("input[name='attendance']:checked");
+      const hotInput = surveyForm.querySelector("input[name='hot']:checked");
+      const needsHot = attendanceInput && attendanceInput.value === "yes";
+
+      const payload = {
+        name: nameInput ? nameInput.value.trim() : "",
+        attendance: attendanceInput ? attendanceInput.value : "",
+        hot: hotInput ? hotInput.value : "",
+      };
+
+      if (!payload.name || !payload.attendance || (needsHot && !payload.hot)) {
+        setSubmitText("Выберите горячее");
+        window.setTimeout(() => setSubmitText(defaultSubmitText), 1500);
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add("is-loading");
+      }
+      setSubmitText("Отправляем...");
+
+      try {
+        const response = await fetch("/api/rsvp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          setSubmitText("Не удалось отправить, попробуйте еще раз");
+          return;
+        }
+
+        surveyForm.reset();
+        updateHotState();
+        setSubmitText("Спасибо, мы приняли ваш ответ");
+      } catch {
+        setSubmitText("Не удалось отправить, попробуйте еще раз");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("is-loading");
+        }
+        window.setTimeout(() => setSubmitText(defaultSubmitText), 2500);
+      }
+    });
+  }
 })();

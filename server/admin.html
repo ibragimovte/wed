@@ -1,78 +1,328 @@
 ﻿<!doctype html>
-<html lang=ru>
+<html lang="ru">
 <head>
-  <meta charset=UTF-8 />
-  <meta name=viewport content=width=device-width, initial-scale=1.0 />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RSVP Admin</title>
   <style>
-    body { font-family: Manrope, Arial, sans-serif; margin: 0; background: #e9edf1; color: #1f2a44; }
-    .wrap { max-width: 420px; margin: 40px auto; padding: 20px; }
-    .card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-    h1 { margin: 0 0 12px; font-size: 22px; }
-    p { margin: 0 0 12px; font-size: 14px; color: #4a5872; }
-    input { width: 100%; height: 44px; border: 1px solid #c7d7e6; border-radius: 10px; padding: 0 12px; font-size: 14px; }
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
-    button { height: 44px; border: 0; border-radius: 10px; background: #a9cff0; color: #1f2a44; font-weight: 600; cursor: pointer; }
-    .ghost { background: #f3e6dc; }
-    .msg { margin-top: 12px; font-size: 13px; min-height: 18px; }
+    :root {
+      color-scheme: light;
+    }
+    body {
+      font-family: Manrope, Arial, sans-serif;
+      margin: 0;
+      background: #e9edf1;
+      color: #1f2a44;
+    }
+    .wrap {
+      max-width: 860px;
+      margin: 24px auto 40px;
+      padding: 16px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+    p {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #4a5872;
+    }
+    input {
+      width: 100%;
+      height: 44px;
+      border: 1px solid #c7d7e6;
+      border-radius: 10px;
+      padding: 0 12px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    button {
+      height: 44px;
+      border: 0;
+      border-radius: 10px;
+      background: #a9cff0;
+      color: #1f2a44;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0 12px;
+    }
+    .ghost {
+      background: #f3e6dc;
+    }
+    .msg {
+      margin-top: 12px;
+      font-size: 13px;
+      min-height: 18px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .stat {
+      background: #f5f8fb;
+      border: 1px solid #d8e3ee;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: #4a5872;
+    }
+    .stat strong {
+      display: block;
+      color: #1f2a44;
+      font-size: 20px;
+      margin-top: 4px;
+    }
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid #d8e3ee;
+      border-radius: 10px;
+      margin-top: 12px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 640px;
+      font-size: 13px;
+    }
+    th,
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #e8eef5;
+      text-align: left;
+      vertical-align: top;
+      color: #1f2a44;
+    }
+    th {
+      background: #f5f8fb;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    @media (max-width: 720px) {
+      .row,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class=wrap>
-    <div class=card>
+  <div class="wrap">
+    <div class="card">
       <h1>RSVP Admin</h1>
-      <p>Вставьте Bearer токен и скачайте выгрузку.</p>
-      <input id=token type=password placeholder=ADMIN_TOKEN />
-      <div class=row>
-        <button id=csv>Скачать CSV</button>
-        <button id=jsonl class=ghost>Скачать JSONL</button>
+      <p>Вставьте Bearer токен и обновите таблицу либо скачайте выгрузку.</p>
+      <input id="token" type="password" placeholder="ADMIN_TOKEN" />
+      <div class="row">
+        <button id="refresh">Обновить таблицу</button>
+        <button id="csv">Скачать CSV</button>
+        <button id="jsonl" class="ghost">Скачать JSONL</button>
       </div>
-      <div class=msg id=msg></div>
+      <div class="msg" id="msg"></div>
+    </div>
+
+    <div class="card">
+      <div class="stats">
+        <div class="stat">Всего анкет<strong id="stat-total">0</strong></div>
+        <div class="stat">Будут присутствовать<strong id="stat-yes">0</strong></div>
+        <div class="stat">Дадут ответ до 1 мая<strong id="stat-maybe">0</strong></div>
+      </div>
+      <div class="stats">
+        <div class="stat">К сожалению, нет<strong id="stat-no">0</strong></div>
+        <div class="stat">Горячее: мясо<strong id="stat-meat">0</strong></div>
+        <div class="stat">Горячее: рыба<strong id="stat-fish">0</strong></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Время</th>
+              <th>Имя</th>
+              <th>Присутствие</th>
+              <th>Горячее</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
   <script>
-    const msg = document.getElementById(msg);
-    const tokenInput = document.getElementById(token);
+    const msg = document.getElementById("msg");
+    const tokenInput = document.getElementById("token");
+    const rowsBody = document.getElementById("rows");
+
+    const statTotal = document.getElementById("stat-total");
+    const statYes = document.getElementById("stat-yes");
+    const statNo = document.getElementById("stat-no");
+    const statMaybe = document.getElementById("stat-maybe");
+    const statMeat = document.getElementById("stat-meat");
+    const statFish = document.getElementById("stat-fish");
+
+    function attendanceLabel(value) {
+      if (value === "yes") return "✅ Да, буду";
+      if (value === "no") return "❌ К сожалению, нет";
+      if (value === "maybe") return "❔ Дам точный ответ до 1 мая";
+      return value || "-";
+    }
+
+    function hotLabel(value) {
+      if (value === "meat") return "Мясо";
+      if (value === "fish") return "Рыба";
+      return value || "-";
+    }
+
+    function parseJsonl(text) {
+      const records = [];
+      for (const line of text.split(/\r?\n/)) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        try {
+          records.push(JSON.parse(trimmed));
+        } catch {
+          // skip bad rows
+        }
+      }
+      return records;
+    }
+
+    function renderStats(records) {
+      let yes = 0;
+      let no = 0;
+      let maybe = 0;
+      let meat = 0;
+      let fish = 0;
+
+      for (const record of records) {
+        if (record.attendance === "yes") yes += 1;
+        if (record.attendance === "no") no += 1;
+        if (record.attendance === "maybe") maybe += 1;
+        if (record.hot === "meat") meat += 1;
+        if (record.hot === "fish") fish += 1;
+      }
+
+      statTotal.textContent = String(records.length);
+      statYes.textContent = String(yes);
+      statNo.textContent = String(no);
+      statMaybe.textContent = String(maybe);
+      statMeat.textContent = String(meat);
+      statFish.textContent = String(fish);
+    }
+
+    function renderRows(records) {
+      if (records.length === 0) {
+        rowsBody.innerHTML = "<tr><td colspan=\"4\">Пока нет анкет</td></tr>";
+        return;
+      }
+
+      const sorted = records.slice().sort((a, b) => {
+        const ta = Date.parse(a.createdAt || "");
+        const tb = Date.parse(b.createdAt || "");
+        return Number.isFinite(tb - ta) ? tb - ta : 0;
+      });
+
+      rowsBody.innerHTML = sorted
+        .map((record) => {
+          const time = record.createdAt ? new Date(record.createdAt).toLocaleString("ru-RU") : "-";
+          const name = (record.name || "-").replace(/[<>]/g, "");
+          return `<tr>
+            <td>${time}</td>
+            <td>${name}</td>
+            <td>${attendanceLabel(record.attendance)}</td>
+            <td>${hotLabel(record.hot)}</td>
+          </tr>`;
+        })
+        .join("");
+    }
 
     async function download(path, filename) {
       const token = tokenInput.value.trim();
       if (!token) {
-        msg.textContent = Введите ADMIN_TOKEN;
+        msg.textContent = "Введите ADMIN_TOKEN";
         return;
       }
-      msg.textContent = Загрузка...;
+
+      msg.textContent = "Загрузка...";
       try {
         const res = await fetch(path, {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
+
         if (!res.ok) {
           msg.textContent = `Ошибка ${res.status}`;
           return;
         }
+
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
-        const a = document.createElement(a);
+        const a = document.createElement("a");
         a.href = url;
         a.download = filename;
         document.body.appendChild(a);
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
-        msg.textContent = Готово;
+        msg.textContent = "Готово";
       } catch {
-        msg.textContent = Ошибка сети;
+        msg.textContent = "Ошибка сети";
       }
     }
 
-    document.getElementById(csv).addEventListener(click, () => {
+    async function refreshTable() {
+      const token = tokenInput.value.trim();
+      if (!token) {
+        msg.textContent = "Введите ADMIN_TOKEN";
+        return;
+      }
+
+      msg.textContent = "Обновляю таблицу...";
+      try {
+        const res = await fetch("/admin/export.jsonl", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!res.ok) {
+          msg.textContent = `Ошибка ${res.status}`;
+          return;
+        }
+
+        const text = await res.text();
+        const records = parseJsonl(text);
+        renderStats(records);
+        renderRows(records);
+        msg.textContent = `Обновлено: ${records.length} анкет`;
+      } catch {
+        msg.textContent = "Ошибка сети";
+      }
+    }
+
+    document.getElementById("refresh").addEventListener("click", refreshTable);
+
+    document.getElementById("csv").addEventListener("click", () => {
       const d = new Date().toISOString().slice(0, 10);
-      download(/admin/export.csv, `rsvp-${d}.csv`);
+      download("/admin/export.csv", `rsvp-${d}.csv`);
     });
 
-    document.getElementById(jsonl).addEventListener(click, () => {
+    document.getElementById("jsonl").addEventListener("click", () => {
       const d = new Date().toISOString().slice(0, 10);
-      download(/admin/export.jsonl, `rsvp-${d}.jsonl`);
+      download("/admin/export.jsonl", `rsvp-${d}.jsonl`);
     });
   </script>
 </body>

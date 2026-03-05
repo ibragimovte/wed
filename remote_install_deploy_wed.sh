@@ -34,12 +34,37 @@ rsync -a --delete --exclude '.git' "$SRC_DIR/" "$TMP_DIR/"
 
 [[ -f "$TMP_DIR/index.html" ]] || { echo "Deploy aborted: index.html missing"; exit 1; }
 [[ -f "$TMP_DIR/styles.css" ]] || { echo "Deploy aborted: styles.css missing"; exit 1; }
+[[ -f "$TMP_DIR/server/index.js" ]] || { echo "Deploy aborted: server/index.js missing"; exit 1; }
+
+# Keep runtime-critical files in place and deploy in-place to avoid
+# moving a live working directory (which can send writes to .__prev).
+mkdir -p "$TARGET_DIR"
+
+if systemctl list-unit-files | grep -q '^wed-rsvp\.service'; then
+  systemctl stop wed-rsvp || true
+fi
 
 rm -rf "$BACKUP_DIR"
-if [[ -d "$TARGET_DIR" ]]; then
-  mv "$TARGET_DIR" "$BACKUP_DIR"
+mkdir -p "$BACKUP_DIR"
+if [[ -d "$TARGET_DIR/data" ]]; then rsync -a "$TARGET_DIR/data/" "$BACKUP_DIR/data/"; fi
+if [[ -d "$TARGET_DIR/backup" ]]; then rsync -a "$TARGET_DIR/backup/" "$BACKUP_DIR/backup/"; fi
+if [[ -f "$TARGET_DIR/.env" ]]; then cp -a "$TARGET_DIR/.env" "$BACKUP_DIR/.env"; fi
+
+rsync -a --delete \
+  --exclude '.env' \
+  --exclude 'data/' \
+  --exclude 'backup/' \
+  --exclude 'node_modules/' \
+  "$TMP_DIR/" "$TARGET_DIR/"
+
+if [[ ! -d "$TARGET_DIR/node_modules" && -f "$TARGET_DIR/package.json" ]]; then
+  cd "$TARGET_DIR"
+  npm install --omit=dev
 fi
-mv "$TMP_DIR" "$TARGET_DIR"
+
+if systemctl list-unit-files | grep -q '^wed-rsvp\.service'; then
+  systemctl start wed-rsvp || true
+fi
 
 chown -R www-data:www-data "$TARGET_DIR" || true
 

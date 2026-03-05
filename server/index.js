@@ -201,17 +201,17 @@ function validatePayload(body) {
   const hot = sanitizeText(body.hot, 60);
 
   if (!name) return { ok: false, reason: "name_required" };
-  if (!["yes", "no"].includes(attendance)) {
+  if (!["yes", "no", "maybe"].includes(attendance)) {
     return { ok: false, reason: "attendance_invalid" };
   }
-  if (!hot) return { ok: false, reason: "hot_required" };
+  if (attendance === "yes" && !hot) return { ok: false, reason: "hot_required" };
 
   return {
     ok: true,
     data: {
       name,
       attendance,
-      hot,
+      hot: attendance === "yes" ? hot : "",
     },
   };
 }
@@ -318,12 +318,16 @@ async function sendTelegram(record) {
   if (!TG_BOT_TOKEN || !TG_CHAT_ID) return "skipped_not_configured";
 
   const attendanceLabel =
-  record.attendance === "yes" ? "✅ Да, будет" : "❌ К сожалению, нет";
+    record.attendance === "yes"
+      ? "✅ Да, будет"
+      : record.attendance === "no"
+        ? "❌ К сожалению, нет"
+        : "❔ Дам точный ответ до 1 мая";
 
 const hotLabel =
   record.hot === "meat" ? "Мясо" :
   record.hot === "fish" ? "Рыба" :
-  record.hot;
+  (record.hot || "—");
 
 const message = [
   "💌 Новая анкета гостей",

@@ -1132,6 +1132,22 @@ h2 {
   border: 0;
 }
 
+.survey-form__submit[disabled] {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.survey-form__submit.is-loading::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  margin-left: 8px;
+  border: 2px solid rgba(74, 88, 114, 0.35);
+  border-top-color: #4a5872;
+  border-radius: 50%;
+  animation: survey-spin 0.8s linear infinite;
+}
+
 .marquee__track {
   display: inline-flex;
   white-space: nowrap;
@@ -1181,6 +1197,12 @@ h2 {
   }
   100% {
     color: #ffffff;
+  }
+}
+
+@keyframes survey-spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
