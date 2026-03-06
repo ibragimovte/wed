@@ -56,7 +56,6 @@ body {
   padding-top: 100px;
   transform-origin: top left;
   transform: translateX(var(--stage-offset-x)) scale(var(--stage-scale));
-  will-change: transform;
 }
 
 h2 {
@@ -110,6 +109,8 @@ h2 {
   opacity: 1;
   transition: opacity 320ms ease;
   z-index: 2;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 .intro-title.is-fading {

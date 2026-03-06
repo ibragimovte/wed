@@ -21,7 +21,8 @@
     const maxPhoneWidth = getMaxPhoneWidth();
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth || DESIGN_WIDTH;
     const boundedWidth = Math.min(viewportWidth, maxPhoneWidth);
-    const scale = boundedWidth / DESIGN_WIDTH;
+    const rawScale = boundedWidth / DESIGN_WIDTH;
+    const scale = Math.round(rawScale * 1000) / 1000;
     const offsetX = Math.max(0, (viewportWidth - boundedWidth) / 2);
 
     let maxBottom = 0;
@@ -39,11 +40,21 @@
     document.body.style.minHeight = `${Math.ceil(stageHeight * scale)}px`;
   }
 
+  function scheduleScale() {
+    window.requestAnimationFrame(applyStageScale);
+  }
+
   let isAnimating = false;
 
   applyStageScale();
-  window.addEventListener("resize", applyStageScale);
-  window.addEventListener("load", applyStageScale);
+  window.requestAnimationFrame(applyStageScale);
+  window.setTimeout(applyStageScale, 180);
+  window.addEventListener("resize", scheduleScale);
+  window.addEventListener("orientationchange", scheduleScale);
+  window.addEventListener("load", scheduleScale);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", scheduleScale);
+  }
 
   envelopeButton.addEventListener("click", () => {
     if (isAnimating) return;
